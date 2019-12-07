@@ -11,7 +11,8 @@ const BadgeNew = () => {
     lastName: "",
     email: "",
     jobTitle: "",
-    twitter: ""
+    twitter: "",
+    gravatar: "http://1.gravatar.com/avatar/6735114339474bf800a704cbc73355a4"
   });
 
   const handleInput = event => {
@@ -36,15 +37,19 @@ const BadgeNew = () => {
         <div className="row">
           <div className="col">
             <Badge
-              firstName="Javier"
-              lastName="Fuentes"
-              twitter="@javier_mora94"
-              jobTitle="Frontend engineer"
-              gravatar="http://1.gravatar.com/avatar/6735114339474bf800a704cbc73355a4"
+              firstName={form.firstName}
+              lastName={form.lastName}
+              twitter={form.twitter}
+              jobTitle={form.jobTitle}
+              gravatar={form.gravatar}
             />
           </div>
           <div className="col">
-            <BadgeForm handleSubmit={handleSubmit} handleInput={handleInput} form={form} />
+            <BadgeForm
+              handleSubmit={handleSubmit}
+              handleInput={handleInput}
+              form={form}
+            />
           </div>
         </div>
       </div>
