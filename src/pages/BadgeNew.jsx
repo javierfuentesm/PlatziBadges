@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import header from "../images/badge-header.svg";
 import "./styles/BadgeNew.css";
-import Navbar from "../components/Navbar";
 import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
 
@@ -28,7 +27,7 @@ const BadgeNew = () => {
   return (
     <>
       <div>
-        <Navbar />
+       
         <div className="BadgeNew__hero">
           <img src={header} className="img-fluid" alt="logo" />
         </div>

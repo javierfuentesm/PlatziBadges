@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
 import BadgesList from "../components/BadgesList";
 import confLogo from "../images/badge-header.svg";
 import "./styles/Badges.css";
@@ -41,7 +40,6 @@ const Badges = () => {
 
   return (
     <>
-      <Navbar></Navbar>
       <div className="Badges">
         <div className="Badges__hero">
           <div className="Badges__container">
@@ -49,13 +47,7 @@ const Badges = () => {
           </div>
         </div>
       </div>
-      <div className="Badge__container">
-        <div className="Badges__buttons">
-          <a href="/badges/new" className="btn btn-primary">
-            New Badge
-          </a>
-        </div>
-      </div>
+ 
 
       <div className="Badges__list">
         <div className="Badges__container">
