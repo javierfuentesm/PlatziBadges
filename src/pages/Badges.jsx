@@ -27,27 +27,33 @@ const Badges = () => {
 
   return (
     <>
-      {data.loading ?(
-        <PageLoading/>
+      {data.error ? (
+        <>Hay un error {data.error.message}</>
       ) : (
         <>
-          <div className="Badges">
-            <div className="Badges__hero">
-              <div className="Badges__container">
-                <img
-                  className="Badges__conf-logo"
-                  src={confLogo}
-                  alt="Conf Logo"
-                />
+          {data.loading ? (
+            <PageLoading />
+          ) : (
+            <>
+              <div className="Badges">
+                <div className="Badges__hero">
+                  <div className="Badges__container">
+                    <img
+                      className="Badges__conf-logo"
+                      src={confLogo}
+                      alt="Conf Logo"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div className="Badges__list">
-            <div className="Badges__container">
-              <BadgesList data={data} />
-            </div>
-          </div>
+              <div className="Badges__list">
+                <div className="Badges__container">
+                  <BadgesList data={data} />
+                </div>
+              </div>
+            </>
+          )}
         </>
       )}
     </>

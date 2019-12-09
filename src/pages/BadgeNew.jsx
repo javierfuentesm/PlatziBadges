@@ -3,6 +3,7 @@ import header from "../images/badge-header.svg";
 import "./styles/BadgeNew.css";
 import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
+import api from "../api";
 
 const BadgeNew = () => {
   const [form, setValues] = useState({
@@ -11,7 +12,9 @@ const BadgeNew = () => {
     email: "",
     jobTitle: "",
     twitter: "",
-    gravatar: "http://1.gravatar.com/avatar/6735114339474bf800a704cbc73355a4"
+    gravatar: "http://1.gravatar.com/avatar/6735114339474bf800a704cbc73355a4",
+    loading: true,
+    error: null
   });
 
   const handleInput = event => {
@@ -20,14 +23,18 @@ const BadgeNew = () => {
       [event.target.name]: event.target.value
     });
   };
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    console.log(form);
+    try {
+      await api.badges.create(form);
+      setValues({ loading: false });
+    } catch (error) {
+      setValues({ loading: false, error: error });
+    }
   };
   return (
     <>
       <div>
-       
         <div className="BadgeNew__hero">
           <img src={header} className="img-fluid" alt="logo" />
         </div>
@@ -36,11 +43,11 @@ const BadgeNew = () => {
         <div className="row">
           <div className="col">
             <Badge
-              firstName={form.firstName}
-              lastName={form.lastName}
-              twitter={form.twitter}
-              jobTitle={form.jobTitle}
-              gravatar={form.gravatar}
+              firstName={form.firstName || "Primer nombre"}
+              lastName={form.lastName || "Apellido"}
+              twitter={form.twitter || "Twitter"}
+              jobTitle={form.jobTitle || "Trabajo"}
+              gravatar={form.gravatar || "Avatar"}
             />
           </div>
           <div className="col">
