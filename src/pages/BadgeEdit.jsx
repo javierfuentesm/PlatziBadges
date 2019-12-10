@@ -52,7 +52,7 @@ const BadgeEdit = props => {
     setValues({ loading: true, error: null });
 
     try {
-      await api.badges.create(form);
+      await api.badges.update(props.match.params.badgeID,form);
       setValues({ loading: false });
       props.history.push("/badges");
     } catch (error) {
