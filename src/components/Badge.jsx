@@ -19,6 +19,8 @@ class Badge extends React.Component {
             {this.props.firstName}
             <br />
             {this.props.lastName}
+            <br />
+            {this.props.email}
           </h1>
         </div>
         <div className="Badge_section-info">

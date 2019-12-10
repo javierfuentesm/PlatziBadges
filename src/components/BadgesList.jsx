@@ -28,7 +28,7 @@ const BadgesList = ({ data }) => {
                 <div className="col-8">
                   <Link
                     className="text-reset text-decoration-none"
-                    to={`/badges/${badge.id}/edit`}
+                    to={`/badges/${badge.id}`}
                   >
                     <p>
                       <h4>

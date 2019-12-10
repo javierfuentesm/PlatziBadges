@@ -52,7 +52,7 @@ const BadgeEdit = props => {
     setValues({ loading: true, error: null });
 
     try {
-      await api.badges.update(props.match.params.badgeID,form);
+      await api.badges.update(props.match.params.badgeID, form);
       setValues({ loading: false });
       props.history.push("/badges");
     } catch (error) {
@@ -80,6 +80,7 @@ const BadgeEdit = props => {
                     <Badge
                       firstName={form.firstName || "Primer nombre"}
                       lastName={form.lastName || "Apellido"}
+                      email={form.email || "Email"}
                       twitter={form.twitter || "Twitter"}
                       jobTitle={form.jobTitle || "Trabajo"}
                       gravatar={form.gravatar || "Avatar"}
