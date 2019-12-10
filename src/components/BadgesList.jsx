@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import "./styles/BadgesList.css";
 
@@ -26,15 +26,21 @@ const BadgesList = ({ data }) => {
                   />
                 </div>
                 <div className="col-8">
-                  <p>
-                    <h4>
-                      {badge.firstName} {badge.lastName}
-                    </h4>
-                  </p>
-                  <p className="text-primary">{badge.twitter}</p>
-                  <p>{badge.jobTitle}</p>
+                  <Link
+                    className="text-reset text-decoration-none"
+                    to={`/badges/${badge.id}/edit`}
+                  >
+                    <p>
+                      <h4>
+                        {badge.firstName} {badge.lastName}
+                      </h4>
+                    </p>
+                    <p className="text-primary">{badge.twitter}</p>
+                    <p>{badge.jobTitle}</p>
+                  </Link>
                 </div>
               </li>
+
               <hr />
             </>
           );
