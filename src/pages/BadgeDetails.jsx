@@ -3,9 +3,10 @@ import "./styles/BadgeDetails.css";
 import confLogo from "../images/platziconf-logo.svg";
 import PageLoading from "./PageLoading";
 import Badge from "../components/Badge";
+import DeleteBadgeModal from "../components/DeleteBadgeModal";
 import { Link } from "react-router-dom";
 
-const BadgeDetails = ({ data }) => (
+const BadgeDetails = ({ data, handleModal, isOpen, deleteBadge }) => (
   <>
     {data.error ? (
       <>Hay un error {data.error.message}</>
@@ -52,7 +53,14 @@ const BadgeDetails = ({ data }) => (
                     </Link>
                   </div>
                   <div>
-                    <button className="btn btn-danger">Delete</button>
+                    <button onClick={handleModal} className="btn btn-danger">
+                      Delete
+                    </button>
+                    <DeleteBadgeModal
+                      deleteBadge={deleteBadge}
+                      isOpen={isOpen}
+                      handleModal={handleModal}
+                    />
                   </div>
                 </div>
               </div>
